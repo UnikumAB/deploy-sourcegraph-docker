@@ -63,6 +63,10 @@ services:
     networks:
       - sourcegraph
     restart: always
+    labels:
+      - "traefik.enable=true"
+      #      - "traefik.docker.network=sourcegraph"
+      - "traefik.http.routers.sourcegraph.rule=Host(`sourcegraph.unikum.us`)"
 
   # Description: Serves the frontend of Sourcegraph via HTTP(S).
   #
