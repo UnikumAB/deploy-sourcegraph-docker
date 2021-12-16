@@ -22,6 +22,11 @@ services:
         limits:
           cpus: '4'
           memory: '4g'
+      labels:
+        - "traefik.enable=true"
+        #      - "traefik.docker.network=sourcegraph"
+        - "traefik.docker.lbswarm=true"
+        - "traefik.http.routers.sourcegraph.rule=Host(`sourcegraph.unikum.us`)"
     environment:
       - 'XDG_DATA_HOME=/caddy-storage/data'
       - 'XDG_CONFIG_HOME=/caddy-storage/config'
@@ -52,9 +57,9 @@ services:
       #
       # Uncomment / update the following line when using HTTPS with custom certificates
       # - '/LOCAL/KEY/PATH.key:/sourcegraph.key'
-    ports:
-      - '0.0.0.0:81:80'
-      - '0.0.0.0:443:443'
+#    ports:
+#      - '0.0.0.0:81:80'
+#      - '0.0.0.0:443:443'
     networks:
       - sourcegraph
     restart: always
