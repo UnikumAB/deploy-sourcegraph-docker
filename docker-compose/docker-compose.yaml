@@ -353,6 +353,11 @@ services:
           cpus: '4'
           memory: '4g'
     environment:
+      - http_proxy=http://webproxy.unikum.local:8888
+      - https_proxy=http://webproxy.unikum.local:8888
+      - HTTP_PROXY=http://webproxy.unikum.local:8888
+      - HTTPS_PROXY=http://webproxy.unikum.local:8888
+      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger
       - GOMAXPROCS=1
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
       - JAEGER_AGENT_HOST=jaeger
