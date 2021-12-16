@@ -21,7 +21,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 4
+          cpus: '4'
           memory: '4g'
     environment:
       - 'XDG_DATA_HOME=/caddy-storage/data'
@@ -76,7 +76,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 4
+          cpus: '4'
           memory: '8g'
     environment:
       - DEPLOY_TYPE=docker-compose
@@ -122,7 +122,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus:   4
+          cpus: '4'
           memory: '8g'
     environment:
       - DEPLOY_TYPE=docker-compose
@@ -169,7 +169,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus:   4
+          cpus: '4'
           memory: '8g'
     environment:
       - GOMAXPROCS=4
@@ -219,7 +219,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus:   8
+          cpus: '8'
           memory: '50g'
 
     environment:
@@ -249,7 +249,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus:   2
+          cpus: '2'
           memory: '2g'
     environment:
       - GOMAXPROCS=2
@@ -280,7 +280,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus:   1
+          cpus: '1'
           memory: '1g'
     environment:
       - GOMAXPROCS=1
@@ -301,7 +301,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus:   2
+          cpus: '2'
           memory: '4g'
     environment:
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
@@ -331,7 +331,7 @@ services:
       resources:
         limits:
           memory: 1g
-          cpus: 1
+          cpus: '1'
     environment:
       - GOMAXPROCS=1
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
@@ -352,7 +352,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 4
+          cpus: '4'
           memory: '4g'
     environment:
       - GOMAXPROCS=1
@@ -377,7 +377,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 4
+          cpus: '4'
           memory: '4g'
     environment:
       - GOMAXPROCS=1
@@ -401,7 +401,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 4
+          cpus: '4'
           memory: '4g'
     healthcheck:
       test: "wget -q 'http://127.0.0.1:9238/health' -O /dev/null || exit 1"
@@ -425,7 +425,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 2
+          cpus: '2'
           memory: '4g'
     environment:
       - GOMAXPROCS=2
@@ -455,7 +455,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 4
+          cpus: '4'
           memory: '8g'
     volumes:
       - 'prometheus-v2:/prometheus'
@@ -485,7 +485,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 1
+          cpus: '1'
           memory: '1g'
     volumes:
       - 'grafana:/var/lib/grafana'
@@ -509,7 +509,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 1
+          cpus: '1'
           memory: '1g'
     volumes:
       - '/:/rootfs:ro'
@@ -539,7 +539,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 0.5
+          cpus: '0.5'
           memory: '512m'
     ports:
       # Query port
@@ -569,7 +569,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 4
+          cpus: '4'
           memory: '2g'
     healthcheck:
       test: '/liveness.sh'
@@ -597,7 +597,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 4
+          cpus: '4'
           memory: '2g'
     healthcheck:
       test: '/liveness.sh'
@@ -629,7 +629,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 4
+          cpus: '4'
           memory: '2g'
     environment:
       - POSTGRES_PASSWORD=password
@@ -654,7 +654,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 1
+          cpus: '1'
           memory: '1g'
     environment:
       - 'MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE'
@@ -684,7 +684,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 1
+          cpus: '1'
           memory: '7g'
     volumes:
       - 'redis-cache:/redis-data'
@@ -703,7 +703,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 1
+          cpus: '1'
           memory: '7g'
     volumes:
       - 'redis-store:/redis-data'
