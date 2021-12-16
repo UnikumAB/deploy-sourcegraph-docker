@@ -707,3 +707,4 @@ volumes:
   zoekt-0-shared:
 networks:
   sourcegraph:
+    attachable: true
