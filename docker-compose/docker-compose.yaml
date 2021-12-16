@@ -86,6 +86,12 @@ services:
           cpus: '4'
           memory: '8g'
     environment:
+      - http_proxy=http://webproxy.unikum.local:8888
+      - https_proxy=http://webproxy.unikum.local:8888
+      - HTTP_PROXY=http://webproxy.unikum.local:8888
+      - HTTPS_PROXY=http://webproxy.unikum.local:8888
+      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
+      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
       - DEPLOY_TYPE=docker-compose
       - GOMAXPROCS=12
       - JAEGER_AGENT_HOST=jaeger
@@ -131,6 +137,12 @@ services:
           cpus: '4'
           memory: '8g'
     environment:
+      - http_proxy=http://webproxy.unikum.local:8888
+      - https_proxy=http://webproxy.unikum.local:8888
+      - HTTP_PROXY=http://webproxy.unikum.local:8888
+      - HTTPS_PROXY=http://webproxy.unikum.local:8888
+      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
+      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
       - DEPLOY_TYPE=docker-compose
       - GOMAXPROCS=4
       - PGHOST=pgsql
@@ -177,6 +189,12 @@ services:
           cpus: '4'
           memory: '8g'
     environment:
+      - http_proxy=http://webproxy.unikum.local:8888
+      - https_proxy=http://webproxy.unikum.local:8888
+      - HTTP_PROXY=http://webproxy.unikum.local:8888
+      - HTTPS_PROXY=http://webproxy.unikum.local:8888
+      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
+      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
       - GOMAXPROCS=4
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
       - JAEGER_AGENT_HOST=jaeger
@@ -357,8 +375,8 @@ services:
       - https_proxy=http://webproxy.unikum.local:8888
       - HTTP_PROXY=http://webproxy.unikum.local:8888
       - HTTPS_PROXY=http://webproxy.unikum.local:8888
-      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger
-      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger
+      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
+      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
       - GOMAXPROCS=1
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
       - JAEGER_AGENT_HOST=jaeger
@@ -383,6 +401,12 @@ services:
           cpus: '4'
           memory: '4g'
     environment:
+      - http_proxy=http://webproxy.unikum.local:8888
+      - https_proxy=http://webproxy.unikum.local:8888
+      - HTTP_PROXY=http://webproxy.unikum.local:8888
+      - HTTPS_PROXY=http://webproxy.unikum.local:8888
+      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
+      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
       - GOMAXPROCS=1
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
       - JAEGER_AGENT_HOST=jaeger
@@ -466,6 +490,12 @@ services:
       - sourcegraph
     restart: always
     environment:
+      - http_proxy=http://webproxy.unikum.local:8888
+      - https_proxy=http://webproxy.unikum.local:8888
+      - HTTP_PROXY=http://webproxy.unikum.local:8888
+      - HTTPS_PROXY=http://webproxy.unikum.local:8888
+      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
+      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
 
   # Description: Dashboards and graphs for Prometheus metrics.
