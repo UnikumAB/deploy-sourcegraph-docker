@@ -10,3 +10,4 @@ nginx/sourcegraph.key
 .env
 
 /right.dhall
+.idea/
