@@ -28,6 +28,12 @@ services:
         - "traefik.docker.lbswarm=true"
         - "traefik.http.routers.sourcegraph.rule=Host(`sourcegraph.unikum.us`)"
     environment:
+      - http_proxy=http://webproxy.unikum.local:8888
+      - https_proxy=http://webproxy.unikum.local:8888
+      - HTTP_PROXY=http://webproxy.unikum.local:8888
+      - HTTPS_PROXY=http://webproxy.unikum.local:8888
+      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
+      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus
       - 'XDG_DATA_HOME=/caddy-storage/data'
       - 'XDG_CONFIG_HOME=/caddy-storage/config'
       - 'SRC_FRONTEND_ADDRESSES=sourcegraph-frontend-0:3080'
