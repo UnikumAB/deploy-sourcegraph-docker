@@ -27,13 +27,9 @@ services:
         #      - "traefik.docker.network=sourcegraph"
         - "traefik.docker.lbswarm=true"
         - "traefik.http.routers.sourcegraph.rule=Host(`sourcegraph.unikum.us`)"
+    env_file:
+      - .env
     environment:
-      - http_proxy=http://webproxy.unikum.local:8888
-      - https_proxy=http://webproxy.unikum.local:8888
-      - HTTP_PROXY=http://webproxy.unikum.local:8888
-      - HTTPS_PROXY=http://webproxy.unikum.local:8888
-      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
-      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
       - 'XDG_DATA_HOME=/caddy-storage/data'
       - 'XDG_CONFIG_HOME=/caddy-storage/config'
       - 'SRC_FRONTEND_ADDRESSES=sourcegraph-frontend-0:3080'
@@ -91,13 +87,9 @@ services:
         limits:
           cpus: '4'
           memory: '8g'
+    env_file:
+      - .env
     environment:
-      - http_proxy=http://webproxy.unikum.local:8888
-      - https_proxy=http://webproxy.unikum.local:8888
-      - HTTP_PROXY=http://webproxy.unikum.local:8888
-      - HTTPS_PROXY=http://webproxy.unikum.local:8888
-      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
-      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
       - DEPLOY_TYPE=docker-compose
       - GOMAXPROCS=12
       - JAEGER_AGENT_HOST=jaeger
@@ -142,13 +134,9 @@ services:
         limits:
           cpus: '4'
           memory: '8g'
+    env_file:
+      - .env
     environment:
-      - http_proxy=http://webproxy.unikum.local:8888
-      - https_proxy=http://webproxy.unikum.local:8888
-      - HTTP_PROXY=http://webproxy.unikum.local:8888
-      - HTTPS_PROXY=http://webproxy.unikum.local:8888
-      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
-      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
       - DEPLOY_TYPE=docker-compose
       - GOMAXPROCS=4
       - PGHOST=pgsql
@@ -194,13 +182,9 @@ services:
         limits:
           cpus: '4'
           memory: '8g'
+    env_file:
+      - .env
     environment:
-      - http_proxy=http://webproxy.unikum.local:8888
-      - https_proxy=http://webproxy.unikum.local:8888
-      - HTTP_PROXY=http://webproxy.unikum.local:8888
-      - HTTPS_PROXY=http://webproxy.unikum.local:8888
-      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
-      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
       - GOMAXPROCS=4
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
       - JAEGER_AGENT_HOST=jaeger
@@ -225,6 +209,8 @@ services:
       resources:
         limits:
           memory: '16g'
+    env_file:
+      - .env
     environment:
       - GOMAXPROCS=8
       - 'HOSTNAME=zoekt-webserver-0:6070'
@@ -249,6 +235,8 @@ services:
           cpus: '8'
           memory: '50g'
 
+    env_file:
+      - .env
     environment:
       - GOMAXPROCS=8
       - 'HOSTNAME=zoekt-webserver-0:6070'
@@ -277,6 +265,8 @@ services:
         limits:
           cpus: '2'
           memory: '2g'
+    env_file:
+      - .env
     environment:
       - GOMAXPROCS=2
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
@@ -307,6 +297,8 @@ services:
         limits:
           cpus: '1'
           memory: '1g'
+    env_file:
+      - .env
     environment:
       - GOMAXPROCS=1
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
@@ -327,6 +319,8 @@ services:
         limits:
           cpus: '2'
           memory: '4g'
+    env_file:
+      - .env
     environment:
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
       - JAEGER_AGENT_HOST=jaeger
@@ -355,6 +349,8 @@ services:
         limits:
           memory: 1g
           cpus: '1'
+    env_file:
+      - .env
     environment:
       - GOMAXPROCS=1
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
@@ -376,13 +372,9 @@ services:
         limits:
           cpus: '4'
           memory: '4g'
+    env_file:
+      - .env
     environment:
-      - http_proxy=http://webproxy.unikum.local:8888
-      - https_proxy=http://webproxy.unikum.local:8888
-      - HTTP_PROXY=http://webproxy.unikum.local:8888
-      - HTTPS_PROXY=http://webproxy.unikum.local:8888
-      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
-      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
       - GOMAXPROCS=1
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
       - JAEGER_AGENT_HOST=jaeger
@@ -406,13 +398,9 @@ services:
         limits:
           cpus: '4'
           memory: '4g'
+    env_file:
+      - .env
     environment:
-      - http_proxy=http://webproxy.unikum.local:8888
-      - https_proxy=http://webproxy.unikum.local:8888
-      - HTTP_PROXY=http://webproxy.unikum.local:8888
-      - HTTPS_PROXY=http://webproxy.unikum.local:8888
-      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
-      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
       - GOMAXPROCS=1
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
       - JAEGER_AGENT_HOST=jaeger
@@ -435,6 +423,8 @@ services:
         limits:
           cpus: '4'
           memory: '4g'
+    env_file:
+      - .env
     healthcheck:
       test: "wget -q 'http://127.0.0.1:9238/health' -O /dev/null || exit 1"
       interval: 5s
@@ -458,6 +448,8 @@ services:
         limits:
           cpus: '2'
           memory: '4g'
+    env_file:
+      - .env
     environment:
       - GOMAXPROCS=2
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
@@ -495,13 +487,9 @@ services:
     networks:
       - sourcegraph
     restart: always
+    env_file:
+      - .env
     environment:
-      - http_proxy=http://webproxy.unikum.local:8888
-      - https_proxy=http://webproxy.unikum.local:8888
-      - HTTP_PROXY=http://webproxy.unikum.local:8888
-      - HTTPS_PROXY=http://webproxy.unikum.local:8888
-      - NO_PROXY=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
-      - no_proxy=.unikum.local,sourcegraph-frontend-internal,github-proxy,jaeger,gitserver-0,searcher-0,syntect-server,symbols-0,zoekt-webserver-0,grafana,prometheus,127.0.0.1,localhost
       - 'SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090'
 
   # Description: Dashboards and graphs for Prometheus metrics.
@@ -522,6 +510,8 @@ services:
         limits:
           cpus: '1'
           memory: '1g'
+    env_file:
+      - .env
     volumes:
       - 'grafana:/var/lib/grafana'
       - '../grafana/datasources:/sg_config_grafana/provisioning/datasources'
@@ -553,6 +543,8 @@ services:
       - '/dev/disk/:/dev/disk:ro'
       # Uncomment to enable container monitoring on MacOS
       # - '/var/run/docker.sock:/var/run/docker.sock:ro'
+    env_file:
+      - .env
     networks:
       - sourcegraph
     restart: always
@@ -583,6 +575,8 @@ services:
       - '0.0.0.0:5778:5778'
       - '0.0.0.0:6831:6831'
       - '0.0.0.0:6832:6832'
+    env_file:
+      - .env
     networks:
       - sourcegraph
     restart: always
@@ -636,6 +630,8 @@ services:
       timeout: 1s
       retries: 10
       start_period: 15s
+    env_file:
+      - .env
     volumes:
       - 'codeintel-db:/data/'
     networks:
@@ -661,6 +657,8 @@ services:
         limits:
           cpus: '4'
           memory: '2g'
+    env_file:
+      - .env
     environment:
       - POSTGRES_PASSWORD=password
       - PGDATA=/var/lib/postgresql/data/pgdata
@@ -685,6 +683,8 @@ services:
         limits:
           cpus: '1'
           memory: '1g'
+    env_file:
+      - .env
     environment:
       - 'MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE'
       - 'MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
